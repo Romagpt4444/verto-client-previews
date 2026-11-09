@@ -1,0 +1,11 @@
+.private/
+.env
+.env.*
+*.key
+*.url
+build-metadata.json
+FINAL-FROZEN.json
+qa/
+qa-*/
+*-results.json
+*-report.json
