@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>From enquiry to handoff · Verto Studio</title>
+<style>
+:root{color-scheme:light;--paper:#eeefe4;--ink:#173725;--soft:#435b49;--line:#abb8a8;--accent:#dcf46a;--white:#f9f9f1}
+*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.5 system-ui,sans-serif}
+.wrap{width:min(1100px,calc(100% - 44px));margin:auto}header{padding:22px 0;display:flex;justify-content:space-between;gap:14px;border-bottom:1px solid var(--line);font-size:.82rem}header strong{letter-spacing:.08em;text-transform:uppercase}
+.hero{padding:clamp(46px,9vw,115px) 0 clamp(40px,6vw,78px);display:grid;grid-template-columns:1.5fr .7fr;align-items:end;gap:28px}h1,h2,p{margin:0}h1{font:normal clamp(2.8rem,7.5vw,6.6rem)/.94 Georgia,serif;letter-spacing:-.055em}h2{font:normal clamp(1.7rem,3vw,2.5rem)/1.06 Georgia,serif;letter-spacing:-.025em}.hero p{max-width:29ch;color:var(--soft)}
+.lab{display:grid;grid-template-columns:.9fr 1.1fr;border:1px solid var(--line)}.input,.output{padding:clamp(21px,4vw,42px)}.input{background:var(--white)}.output{background:var(--ink);color:var(--white)}label{display:block;font-weight:700;margin:24px 0 5px}select,button{font:inherit;width:100%;color:inherit;padding:12px;min-height:45px;border-radius:0}select{border:1px solid var(--line);background:transparent}button{margin-top:22px;background:var(--accent);border:1px solid var(--ink);font-weight:750;cursor:pointer}button:hover{background:#e4f993}button:focus-visible,select:focus-visible{outline:3px solid #337c49;outline-offset:3px}.output dl{margin:16px 0 0}.output div{border-top:1px solid #688171;padding:13px 0;display:grid;grid-template-columns:100px 1fr;align-items:baseline;gap:14px}.output dt{color:#d7e9d7;font-size:.85rem}.output dd{margin:0}.note{color:var(--soft);font-size:.9rem;margin:16px 0}.steps{margin:38px 0 44px;display:grid;grid-template-columns:repeat(3,1fr);gap:24px}.steps section{border-top:1px solid var(--line);padding-top:14px}.steps h2{font-size:1.5rem}.steps p{margin-top:8px;color:var(--soft)}footer{border-top:1px solid var(--line);padding:18px 0 24px;color:var(--soft);font-size:.85rem}
+@media(max-width:680px){.wrap{width:calc(100% - 32px)}.hero,.lab,.steps{grid-template-columns:1fr}.hero{gap:18px}.steps{gap:18px}.output div{grid-template-columns:78px 1fr;gap:8px}}
+</style>
+</head>
+<body><div class="wrap">
+<header><strong>Verto Studio</strong><span>Interactive concept</span></header>
+<main>
+<section class="hero"><h1>From enquiry<br>to handoff.</h1><p>Show your team what a booking assistant would ask, what it would record and when a person would take over.</p></section>
+<section class="lab" aria-label="Enquiry simulator">
+<div class="input"><h2>Try an example</h2><label for="scenario">Sample message</label><select id="scenario"><option value="bouquet">“I’d like a bouquet this Saturday.”</option><option value="event">“Can you do flowers for our wedding?”</option><option value="change">“I need to change an order.”</option></select><button type="button" id="run">Prepare staff handoff</button></div>
+<div class="output"><h2>Staff handoff</h2><dl aria-live="polite"><div><dt>Request</dt><dd id="request">Bouquet enquiry</dd></div><div><dt>Next question</dt><dd id="question">What collection or delivery area should we check?</dd></div><div><dt>Team action</dt><dd id="action">Check stock and timing before quoting.</dd></div></dl></div>
+</section>
+<p class="note">This simulation uses sample messages. It runs in your browser and sends nothing to a customer.</p>
+<div class="steps">
+<section><h2>Ask once</h2><p>Use one short question to fill in the most useful missing detail.</p></section>
+<section><h2>Share the context</h2><p>Give the team the request, missing information and suggested next step in one place.</p></section>
+<section><h2>Confirm with care</h2><p>The team checks availability, changes and pricing before confirming anything to the customer.</p></section>
+</div>
+</main><footer>Proposed workflow by Verto Studio. Live channels and integrations would be scoped with the business.</footer>
+</div>
+<script>
+const scenarios={
+  bouquet:['Bouquet enquiry','What collection or delivery area should we check?','Check stock and timing before quoting.'],
+  event:['Wedding flowers','What are the event date and venue?','Route to the events team for a consultation.'],
+  change:['Existing order change','What is the order reference?','Forward the request to a person for review.']
+};
+document.querySelector('#run').addEventListener('click',()=>{
+  const output=scenarios[document.querySelector('#scenario').value];
+  ['request','question','action'].forEach((id,index)=>{
+    document.getElementById(id).textContent=output[index];
+  });
+});
+</script>
+</body></html>
