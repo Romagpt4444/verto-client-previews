@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="description" content="Verto Studio concept for a mobile-first local service website with a WhatsApp enquiry flow.">
+  <title>Local Service Website · Verto Studio Concept</title>
+  <link rel="icon" href="data:,">
+  <style>
+    :root { color-scheme: light; --paper: #f5f3eb; --ink: #172b28; --muted: #455952; --green: #174b3d; --line: #d1d7cc; --white: #fffefa; }
+    *, *::before, *::after { box-sizing: border-box; }
+    body { margin: 0; background: var(--paper); color: var(--ink); font: 1rem/1.55 system-ui, sans-serif; }
+    a { color: inherit; }
+    button, input, textarea, select { font: inherit; }
+    button { cursor: pointer; }
+    :focus-visible { outline: 3px solid #216a55; outline-offset: 4px; }
+    .wrap { width: min(1120px, calc(100% - 48px)); margin-inline: auto; }
+    .mast { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px 24px; padding-block: 20px; border-bottom: 1px solid var(--line); }
+    .mast strong { font-size: .875rem; letter-spacing: .04em; }
+    nav { display: flex; flex-wrap: wrap; gap: 10px 20px; font-size: .875rem; }
+    nav a { text-underline-offset: 4px; }
+    .hero { display: grid; grid-template-columns: 1.12fr .88fr; gap: clamp(24px, 6vw, 88px); align-items: center; padding-block: clamp(48px, 9vw, 112px); }
+    .eyebrow { margin: 0 0 12px; color: var(--muted); font-size: .85rem; font-weight: 650; }
+    h1, h2 { margin: 0; font: 500 clamp(2rem, 5vw, 4.8rem)/1.04 Georgia, serif; letter-spacing: -.045em; }
+    h2 { font-size: clamp(1.9rem, 4vw, 3rem); }
+    .lede { max-width: 49ch; margin-block: 20px 26px; color: var(--muted); }
+    .button { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 48px; padding: 10px 16px; background: var(--green); color: #fff; border: 1px solid var(--green); border-radius: 6px; font-weight: 650; text-decoration: none; }
+    .button:hover { background: #0e392d; }
+    .button.secondary { background: var(--white); color: var(--green); }
+    .preview { min-width: 0; padding: clamp(20px, 4vw, 34px); background: #dce6d7; border: 1px solid #c0cebd; border-radius: 14px; }
+    .preview h2 { font-size: clamp(1.65rem, 3vw, 2.55rem); }
+    .steps { margin: 20px 0 0; padding-left: 1.25em; }
+    .steps li { padding: 7px 0 7px 5px; }
+    .steps li + li { border-top: 1px solid #becdba; }
+    .section { padding-block: clamp(30px, 6vw, 68px); border-top: 1px solid var(--line); }
+    .section > p { margin: 9px 0 24px; color: var(--muted); }
+    .items { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+    .item { min-width: 0; padding: 17px 16px; background: var(--white); border: 1px solid var(--line); border-radius: 8px; }
+    .item h3 { margin: 0 0 5px; font-size: 1rem; }
+    .item p { margin: 0; color: var(--muted); font-size: .875rem; }
+    .request { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 20px; }
+    .request p { margin: 9px 0 0; color: var(--muted); }
+    footer { padding: 18px 0 30px; border-top: 1px solid var(--line); color: var(--muted); font-size: .875rem; }
+    dialog { width: min(465px, calc(100% - 32px)); max-height: calc(100dvh - 32px); border: 1px solid var(--line); border-radius: 12px; background: var(--white); color: var(--ink); padding: clamp(16px, 4vw, 25px); overflow: auto; }
+    dialog::backdrop { background: #112a24a6; }
+    dialog h2 { font-size: 1.9rem; }
+    dialog p { color: var(--muted); font-size: .9rem; }
+    label { display: grid; gap: 4px; margin: 12px 0; font-weight: 600; }
+    select, textarea { width: 100%; background: #fff; color: var(--ink); padding: 8px; border: 1px solid #8da196; border-radius: 4px; resize: vertical; }
+    .actions { display: flex; flex-wrap: wrap; gap: 9px; }
+    #message { white-space: pre-wrap; overflow-wrap: anywhere; padding: 12px; background: #e8ede5; border-radius: 6px; }
+    [hidden] { display: none; }
+    @media (max-width: 750px) { .hero { grid-template-columns: 1fr; } }
+    @media (max-width: 550px) { .wrap { width: calc(100% - 28px); } .items { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <header class="wrap mast">
+    <strong>Local Service Website</strong>
+    <nav aria-label="Page sections"><a href="#services">Services</a><a href="#work">Gallery</a><a href="#contact">Contact</a></nav>
+  </header>
+  <main class="wrap">
+    <section class="hero" aria-labelledby="hero-title">
+      <div>
+        <p class="eyebrow">Website concept for a local service company</p>
+        <h1 id="hero-title">Find the service.<br>Request a quote.</h1>
+        <p class="lede">Give customers a place to check what you do, see examples and start a WhatsApp enquiry from their phone.</p>
+        <button class="button" type="button" data-enquiry>Preview a WhatsApp enquiry <span aria-hidden="true">↗</span></button>
+      </div>
+      <aside class="preview" aria-labelledby="preview-title">
+        <h2 id="preview-title">What the customer does</h2>
+        <ol class="steps"><li>Chooses a service</li><li>Adds a location or project detail</li><li>Previews the message here</li></ol>
+      </aside>
+    </section>
+    <section class="section" id="services">
+      <h2>Services</h2>
+      <p>Replace these sample entries with the company’s service names and descriptions.</p>
+      <div class="items">
+        <article class="item"><h3>Primary service</h3><p>What is included and who it is for.</p></article>
+        <article class="item"><h3>Second service</h3><p>When a customer might need it.</p></article>
+        <article class="item"><h3>Other requests</h3><p>Which custom jobs the company can discuss.</p></article>
+      </div>
+    </section>
+    <section class="section" id="work">
+      <h2>Project gallery</h2>
+      <p>Add the company’s own photos and captions here.</p>
+      <div class="items">
+        <article class="item"><h3>First project photo</h3><p>What the customer asked for.</p></article>
+        <article class="item"><h3>Second project photo</h3><p>What the team did on site.</p></article>
+        <article class="item"><h3>Third project photo</h3><p>The completed result.</p></article>
+      </div>
+    </section>
+    <section class="section request" id="contact">
+      <div><h2>Request a quote</h2><p>Choose a service and write a few details in the preview.</p></div>
+      <button class="button" type="button" data-enquiry>Preview enquiry</button>
+    </section>
+  </main>
+  <footer class="wrap">Verto Studio · Website concept. The enquiry preview runs on this page.</footer>
+  <dialog id="enquiry" aria-labelledby="enquiry-title">
+    <h2 id="enquiry-title">Preview an enquiry</h2>
+    <p>Try it with sample details. This preview keeps the message on this page.</p>
+    <form id="enquiry-form">
+      <label>Service <select id="service"><option>Primary service</option><option>Second service</option><option>Other request</option></select></label>
+      <label>Project details <textarea id="details" rows="3" maxlength="240" placeholder="Example: I’m in the city centre and would like an estimate."></textarea></label>
+      <div class="actions"><button class="button" type="submit">Preview message</button><button class="button secondary" id="close" type="button">Close</button></div>
+    </form>
+    <p id="message" role="status" aria-live="polite" hidden></p>
+  </dialog>
+  <script>
+    const dialog = document.querySelector('#enquiry');
+    const message = document.querySelector('#message');
+    document.querySelectorAll('[data-enquiry]').forEach(button => {
+      button.addEventListener('click', () => dialog.showModal());
+    });
+    document.querySelector('#close').addEventListener('click', () => dialog.close());
+    document.querySelector('#enquiry-form').addEventListener('submit', event => {
+      event.preventDefault();
+      const service = document.querySelector('#service').value;
+      const details = document.querySelector('#details').value.trim();
+      message.textContent = `Hi, I’d like a quote for ${service.toLowerCase()}.${details ? `\n${details}` : ''}`;
+      message.hidden = false;
+    });
+  </script>
+</body>
+</html>
